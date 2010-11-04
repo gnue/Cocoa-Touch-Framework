@@ -1,0 +1,280 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F5CC32111269B98500C588BB /* ___PROJECTNAMEASIDENTIFIER___ */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F5CC32141269B9A300C588BB /* Build configuration list for PBXAggregateTarget "___PROJECTNAMEASIDENTIFIER___" */;
+			buildPhases = (
+				F5CC32101269B98500C588BB /* スクリプトを実行 */,
+				F5CC328A1269C7C400C588BB /* CopyFiles */,
+			);
+			dependencies = (
+				F53DCCB9126CF31100AA4980 /* PBXTargetDependency */,
+			);
+			name = "___PROJECTNAMEASIDENTIFIER___";
+			productName = "iOS Framework";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		F53DCCB8126CF31100AA4980 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5CC31F51269B90800C588BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F53DCCB2126CF30900AA4980;
+			remoteInfo = libhoge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5CC328A1269C7C400C588BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${PRODUCT_NAME}.framework/Headers";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F53DCCB3126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "lib___PROJECTNAMEASIDENTIFIER___.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F53DCCB1126CF30900AA4980 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F53DCCB4126CF30900AA4980 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F53DCCB3126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5CC31F31269B90800C588BB = {
+			isa = PBXGroup;
+			children = (
+				F5CC33FD1269DA0B00C588BB /* Sources */,
+				F53DCCB4126CF30900AA4980 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5CC33FD1269DA0B00C588BB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F53DCCAF126CF30900AA4980 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F53DCCB2126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F53DCCB7126CF30A00AA4980 /* Build configuration list for PBXNativeTarget "lib___PROJECTNAMEASIDENTIFIER___" */;
+			buildPhases = (
+				F53DCCAF126CF30900AA4980 /* Headers */,
+				F53DCCB0126CF30900AA4980 /* Sources */,
+				F53DCCB1126CF30900AA4980 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lib___PROJECTNAMEASIDENTIFIER___";
+			productName = libhoge;
+			productReference = F53DCCB3126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5CC31F51269B90800C588BB /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F5CC31F81269B90800C588BB /* Build configuration list for PBXProject "___PROJECTNAME___" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = F5CC31F31269B90800C588BB;
+			productRefGroup = F53DCCB4126CF30900AA4980 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F53DCCB2126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___ */,
+				F5CC32111269B98500C588BB /* ___PROJECTNAMEASIDENTIFIER___ */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F5CC32101269B98500C588BB /* スクリプトを実行 */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "スクリプトを実行";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\n\nrm -f ${FRAMEWORK}/${PRODUCT_NAME}\n\nxcodebuild -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk iphonesimulator\nxcodebuild -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk iphoneos\nif [ $? -ne 0 ]; then\n\texit 1\nfi\n\nmkdir -p ${FRAMEWORK}\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${FRAMEWORK}/${PRODUCT_NAME}\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F53DCCB0126CF30900AA4980 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F53DCCB9126CF31100AA4980 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F53DCCB2126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___ */;
+			targetProxy = F53DCCB8126CF31100AA4980 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F53DCCB5126CF30A00AA4980 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+			};
+			name = Debug;
+		};
+		F53DCCB6126CF30A00AA4980 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		F5CC31F61269B90800C588BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				SDKROOT = iphoneos4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5CC31F71269B90800C588BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				SDKROOT = iphoneos4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5CC32121269B98500C588BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
+				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+				SOURCE_TARGET_NAME = "lib___PROJECTNAMEASIDENTIFIER___";
+			};
+			name = Debug;
+		};
+		F5CC32131269B98500C588BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
+				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
+				SOURCE_TARGET_NAME = "lib___PROJECTNAMEASIDENTIFIER___";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F53DCCB7126CF30A00AA4980 /* Build configuration list for PBXNativeTarget "lib___PROJECTNAMEASIDENTIFIER___" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F53DCCB5126CF30A00AA4980 /* Debug */,
+				F53DCCB6126CF30A00AA4980 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CC31F81269B90800C588BB /* Build configuration list for PBXProject "___PROJECTNAME___" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CC31F61269B90800C588BB /* Debug */,
+				F5CC31F71269B90800C588BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5CC32141269B9A300C588BB /* Build configuration list for PBXAggregateTarget "___PROJECTNAMEASIDENTIFIER___" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5CC32121269B98500C588BB /* Debug */,
+				F5CC32131269B98500C588BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5CC31F51269B90800C588BB /* Project object */;
+}
