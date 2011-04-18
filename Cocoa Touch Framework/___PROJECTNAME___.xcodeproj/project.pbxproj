@@ -55,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F52F4938135BFBF000B52A24 /* ___PROJECTNAME___-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "___PROJECTNAME___-Info.plist"; sourceTree = "<group>"; };
 		F53DCCB3126CF30900AA4980 /* lib___PROJECTNAMEASIDENTIFIER___.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "lib___PROJECTNAMEASIDENTIFIER___.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +89,7 @@
 		F5CC33FD1269DA0B00C588BB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F52F4938135BFBF000B52A24 /* ___PROJECTNAME___-Info.plist */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -161,7 +163,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.${WRAPPER_EXTENSION}\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\nCURRENT_VERSION=\"${FRAMEWORK}/Versions/${FRAMEWORK_VERSION}\"\n\nrm -rf \"${FRAMEWORK}\"\n\nfor sdk in iphonesimulator iphoneos; do\n\txcodebuild BUILD_DIR=\"${BUILD_DIR}\" -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk $sdk\n\n\tif [ $? -ne 0 ]; then\n\texit 1\n\tfi\ndone\n\nmkdir -p ${CURRENT_VERSION}\nmkdir -p ${CURRENT_VERSION}/Headers\nmkdir -p ${CURRENT_VERSION}/Resources\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${CURRENT_VERSION}/${PRODUCT_NAME}\n\ncd ${FRAMEWORK}/Versions\nln -s ${FRAMEWORK_VERSION} Current\n\ncd ${FRAMEWORK}\nfor f in Versions/Current/*; do\n\tln -s \"${f}\"\ndone\n                          \n";
+			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.${WRAPPER_EXTENSION}\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\nCURRENT_VERSION=\"${FRAMEWORK}/Versions/${FRAMEWORK_VERSION}\"\n\nrm -rf \"${FRAMEWORK}\"\n\nfor sdk in iphonesimulator iphoneos; do\n\txcodebuild BUILD_DIR=\"${BUILD_DIR}\" SYMROOT=\"${SYMROOT}\" PROJECT_TEMP_DIR=\"${PROJECT_TEMP_DIR}\" -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk $sdk\n\n\tif [ $? -ne 0 ]; then\n\texit 1\n\tfi\ndone\n\nmkdir -p ${CURRENT_VERSION}\nmkdir -p ${CURRENT_VERSION}/Headers\nmkdir -p ${CURRENT_VERSION}/Resources\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${CURRENT_VERSION}/${PRODUCT_NAME}\n\nif [ -e \"${PROJECT_DIR}/${INFOPLIST_FILE}\" ]; then\ncp \"${PROJECT_DIR}/${INFOPLIST_FILE}\" \"${CURRENT_VERSION}/Resources/Info.plist\"\nfi\n\ncd ${FRAMEWORK}/Versions\nln -s ${FRAMEWORK_VERSION} Current\n\ncd ${FRAMEWORK}\nfor f in Versions/Current/*; do\n\tln -s \"${f}\"\ndone\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -217,7 +219,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -229,7 +231,7 @@
 				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -238,6 +240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILT_PRODUCTS_DIR = "${BUILD_DIR}/${BUILD_STYLE}";
+				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
@@ -250,6 +253,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILT_PRODUCTS_DIR = "${BUILD_DIR}/${BUILD_STYLE}";
+				INFOPLIST_FILE = "___PROJECTNAME___-Info.plist";
 				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
