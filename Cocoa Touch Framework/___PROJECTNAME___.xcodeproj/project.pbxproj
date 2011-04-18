@@ -151,7 +151,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\n\nrm -f ${FRAMEWORK}/${PRODUCT_NAME}\n\nxcodebuild -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk iphonesimulator\nxcodebuild -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk iphoneos\nif [ $? -ne 0 ]; then\n\texit 1\nfi\n\nmkdir -p ${FRAMEWORK}\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${FRAMEWORK}/${PRODUCT_NAME}\n";
+			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\n\nrm -f ${FRAMEWORK}\n\nfor sdk in iphonesimulator iphoneos; do\nxcodebuild BUILD_DIR=\"${BUILD_DIR}\" -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk $sdk\n\nif [ $? -ne 0 ]; then\nexit 1\nfi\ndone\n\nmkdir -p ${FRAMEWORK}\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${FRAMEWORK}/${PRODUCT_NAME}\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -227,6 +227,7 @@
 		F5CC32121269B98500C588BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILT_PRODUCTS_DIR = "${BUILD_DIR}/${BUILD_STYLE}";
 				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
@@ -237,6 +238,7 @@
 		F5CC32131269B98500C588BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILT_PRODUCTS_DIR = "${BUILD_DIR}/${BUILD_STYLE}";
 				PRODUCT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
