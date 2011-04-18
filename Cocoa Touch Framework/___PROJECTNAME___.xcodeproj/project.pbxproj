@@ -13,6 +13,7 @@
 			buildPhases = (
 				F5CC32101269B98500C588BB /* スクリプトを実行 */,
 				F5CC328A1269C7C400C588BB /* CopyFiles */,
+				F52F4937135BFB3000B52A24 /* CopyFiles */,
 			);
 			dependencies = (
 				F53DCCB9126CF31100AA4980 /* PBXTargetDependency */,
@@ -33,10 +34,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F52F4937135BFB3000B52A24 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${PRODUCT_NAME}.${WRAPPER_EXTENSION}/Resources";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5CC328A1269C7C400C588BB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "${PRODUCT_NAME}.framework/Headers";
+			dstPath = "${PRODUCT_NAME}.$(WRAPPER_EXTENSION}/Headers";
 			dstSubfolderSpec = 16;
 			files = (
 			);
@@ -151,7 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\n\nrm -f ${FRAMEWORK}\n\nfor sdk in iphonesimulator iphoneos; do\nxcodebuild BUILD_DIR=\"${BUILD_DIR}\" -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk $sdk\n\nif [ $? -ne 0 ]; then\nexit 1\nfi\ndone\n\nmkdir -p ${FRAMEWORK}\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${FRAMEWORK}/${PRODUCT_NAME}\n";
+			shellScript = "# shell script goes here\n\nFRAMEWORK=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.${WRAPPER_EXTENSION}\"\nSOURCE_PROJECT=\"${SOURCE_PROJECT_NAME}.xcodeproj\"\nCURRENT_VERSION=\"${FRAMEWORK}/Versions/${FRAMEWORK_VERSION}\"\n\nrm -rf \"${FRAMEWORK}\"\n\nfor sdk in iphonesimulator iphoneos; do\n\txcodebuild BUILD_DIR=\"${BUILD_DIR}\" -xcconfig \"${PROJECT_DIR}\" -project \"${SOURCE_PROJECT}\" -target \"${SOURCE_TARGET_NAME}\" -configuration \"${BUILD_STYLE}\" -sdk $sdk\n\n\tif [ $? -ne 0 ]; then\n\texit 1\n\tfi\ndone\n\nmkdir -p ${CURRENT_VERSION}\nmkdir -p ${CURRENT_VERSION}/Headers\nmkdir -p ${CURRENT_VERSION}/Resources\n\nlipo ${BUILD_DIR}/${BUILD_STYLE}-iphoneos/${SOURCE_LIB_NAME} -arch i386 ${BUILD_DIR}/${BUILD_STYLE}-iphonesimulator/${SOURCE_LIB_NAME} -create -output ${CURRENT_VERSION}/${PRODUCT_NAME}\n\ncd ${FRAMEWORK}/Versions\nln -s ${FRAMEWORK_VERSION} Current\n\ncd ${FRAMEWORK}\nfor f in Versions/Current/*; do\n\tln -s \"${f}\"\ndone\n                          \n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -232,6 +242,7 @@
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_TARGET_NAME = "lib___PROJECTNAMEASIDENTIFIER___";
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
@@ -243,6 +254,7 @@
 				SOURCE_LIB_NAME = "lib___PROJECTNAMEASIDENTIFIER___.a";
 				SOURCE_PROJECT_NAME = "___PROJECTNAMEASIDENTIFIER___";
 				SOURCE_TARGET_NAME = "lib___PROJECTNAMEASIDENTIFIER___";
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
